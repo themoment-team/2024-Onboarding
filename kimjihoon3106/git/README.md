@@ -94,6 +94,63 @@ git status
 ---
 ### github 협업의 기초
 
+### branch 명령어
+```bash
+git branch [새로운 브랜치 이름]
+```
+* 새로운 브랜치 생성.
+
+```bash
+git checkout -b [새로운 브랜치 이름]
+```
+
+```bash
+git switch -c [새로운 브랜치 이름]
+```
+* 새로운 브랜치 생성 후 해당 브랜치로 전환
+
+```bash
+git push origin [새로운 브랜치 이름]
+```
+* Remote Repository 에도 생성한 브랜치를 반영
+
+```bash
+git branch
+```
+* 브랜치 목록 확인
+
+```bash
+git branch -v
+```
+* 브랜치 목록과 각 브랜치의 최근 커밋 확인
+
+```bash
+git branch -d [삭제할 브랜치 이름]
+```
+```bash
+git branch -D
+```
+* 브랜치 삭제, 병합하지 않은 브랜치를 강제 삭제
+
+```bash
+git checkout [master] // 합칠 브랜치로 전환
+```
+```bash
+git merge [develope] // 합칠 브랜치를 merge
+```
+* 브랜치 병합
+```bash
+git reset -- hard [커밋 넘버]
+```
+* 병합을 취소하고 이전 커밋으로 되돌리기
+```bash
+git log --branches --graph --decorate
+```
+* 로그에 모든 브랜치를 그래프로 표현
+```bash
+git stash
+```
+* 아직 commit 하지 않은 작업을 스택에 임시로 저장
 ### Git Branch 전략
 #### 1. gitflow
 ##### gitflow에 존재하는 5가지 브랜치
@@ -161,3 +218,46 @@ git status
 * 개발을 해서 브랜치처럼 Merge를 바로 하는 것이 아니라 Pull requests로 원 프로젝트 관리자에서 머지 요청을 보내면 원 프로젝트 관리자가 Pull requests된 코드를 보고 적절하다 싶으면 그때 그 기능을 붙히는 식으로 개발을 진행한다.
 
 <br>![image1](image-5.png)
+
+### Pull Request
+#### PR
+* 내가 작업한 코드가 있으니 내 브랜치를 당겨 검토 후 병합해주세요 
+#### pull request를 하는 이유
+* 자연스러운 코드 리뷰를 위해
+* **Push 권한이 없는 오픈 소스 프로젝트에 기여할 때**
+* 콜라보레이터에 소속되어있는 경우에는, 그 저장소에서 브런치를 따고 푸쉬하면 풀리퀘가 가능하다.
+* Pull Request는 당장 merge하지 않는다는 규칙이 Pull Request를 보고, 코드에 신경쓰게되고 어떤 작업이 언제 적용되었는지 알 수 있다.
+
+#### 방법
+#### 1. Fork
+* Upstream Repository를 자신의 저장소로 Fork(Origin Repository)한다.
+#### 2. Clone, remote 설정
+* fork로 생성한 Repository에서 clone or download 버튼을 누르고 표시되는 URL을 복사한다.
+#### 3. 내 컴퓨터에 생성된 로컬저장소에 원격저장소를 추가한다.
+* Clone했던 원본프로젝트저장소(origin)를 원격저장소(github)로 추가
+#### 4. branch 생성
+* 내 컴퓨터의 Clone프로젝트 저장소(origin)에서 코드를 수정하거나 추가하는 작업은 branch를 만들어서 진행한다.
+#### 5. 수정 작업 후 add, commit, push
+* editor를 통하여 코드를 수정한다.
+* 작업이 완료되면 Github Repository(origin)에 add, commit, push한다.
+#### 6. Pull Request 생성
+* push 완료후 자신의 github 저장소에서 Compare & pull request버튼이 활성화 되어있는걸 확인할 수 있다.
+* 버튼을 선택해 Pull Request를 생성한다.
+#### 7. Merge Pull Request
+* PR을 받은 관리자는 코드 변경내역을 환인하고 Merge여부를 결정하게 된다.
+#### 8. Merge 이후 동기화 및 branch 삭제
+* Merge가 완료되면 로컬 코드와 원본의 코드를 병합하고 최신의 상태를 유지하게 위해 동기화한다.
+* upstream 확인
+
+
+### 코드 리뷰
+#### 코드리뷰
+* 소프트웨어를 실행하지 않고 사람이 직접 검토하는 과정을 통해 잠재적 결함을 찾아내고 개선해 나가면서 전반적인 소프트웨어의 품질을 높이고자 하는 활동
+#### 현업에서의 코드 리뷰
+* Code를 통해 서로 소통하고, 서로 배움을 얻는 활동
+* 제품 완성 단계가 아닌, 개발 단계에서 일상적으로 수행하는 Daily Work
+
+#### 효과
+* 개발 비용 감소
+* 유지 보수성 증대
+* 역량 강화
