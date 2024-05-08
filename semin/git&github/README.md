@@ -108,7 +108,7 @@ git flow 전략에선 5가지의 브랜치를 사용합니다.
 + master : 제품으로 출시될 수 있는 브랜치
     안정성이 검증된 버전(QA 이후 release)
 
-![alt text](semin\git&github\git-flow_graph.png)
+![alt text](git-flow_graph.png)
 
 1. feature에서 기능개발을 한다.
 
@@ -145,7 +145,7 @@ github flow는 git flow와 달리,
 
 기능 개발을 위해 새로운 브랜치를 만들고 그대로 master에 merge합니다.
 
-![image alt](semin\git&github\github-flow_graph.png)
+![image alt](github-flow_graph.png)
 
 1. 기능 개발 브랜치 생성
 2. 커밋 작성
