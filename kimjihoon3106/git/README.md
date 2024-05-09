@@ -120,11 +120,6 @@ git branch
 * 브랜치 목록 확인
 
 ```bash
-git branch -v
-```
-* 브랜치 목록과 각 브랜치의 최근 커밋 확인
-
-```bash
 git branch -d [삭제할 브랜치 이름]
 ```
 ```bash
@@ -171,7 +166,7 @@ git stash
 >   - 테스트를 진행하면서 발생하는 버그 수정은 release-* 브랜치에 직접 반영한다.
 >   - 테스트가 완료되면 release 브랜치를 master와 develop에 merge한다.
 
-<br>![image1](image-2.png)
+<br>![image2](image-2.png)
 
 #### 2. github flow
 * git-flow가 github에서 사용하기에는 복잡하다고 나온 브랜치 전략이다.
@@ -200,7 +195,7 @@ git stash
 >   - GitHub-flow의 핵심이다.
 >   - **master로 merge가 일어나면 자동으로 배포**가 되도록 설정해놓는다 
 
-<br>![image1](image-3.png)
+<br>![image3](image-3.png)
 
 #### 3. gitlab flow 
 * Gitlab에는 **Production 브랜치**가 있는데, 이는 Gitflow의 **Master브랜치역할과 같다**.
@@ -210,16 +205,15 @@ git stash
 * Production브랜치에서 릴리즈된 코드가 **항상 프로젝트의 최신버전 상태를 유지해야할 필요가 없다**는 장점
 * 복잡한 Gitflow와 너무 간단한 Github의 절충안
 
-<br>![image1](image-4.png)
+<br>![image4](image-4.png)
 
 #### 4. Fork와 Pull Request
 * 규모가 있는 개발을 할 경우 브랜치 보다는 Fork와 Pull requests를 활용하여 구현을 한다.
 * Fork는 브랜치와 비슷하지만 프로젝트를 통째로 외부로 복제해서 개발을 하는 방식이다.
 * 개발을 해서 브랜치처럼 Merge를 바로 하는 것이 아니라 Pull requests로 원 프로젝트 관리자에서 머지 요청을 보내면 원 프로젝트 관리자가 Pull requests된 코드를 보고 적절하다 싶으면 그때 그 기능을 붙히는 식으로 개발을 진행한다.
 
-<br>![image1](image-5.png)
+<br>![image5](image-5.png)
 
-### Pull Request
 #### PR
 * 내가 작업한 코드가 있으니 내 브랜치를 당겨 검토 후 병합해주세요 
 #### pull request를 하는 이유
@@ -248,6 +242,15 @@ git stash
 #### 8. Merge 이후 동기화 및 branch 삭제
 * Merge가 완료되면 로컬 코드와 원본의 코드를 병합하고 최신의 상태를 유지하게 위해 동기화한다.
 * upstream 확인
+
+##### upstream
+>   - fork를 하여 만들어낸 원류의 상류 레퍼지토리를 의미한다.<br>
+>   - 쉽게 말하자면 origin의 origin이라고 할 수 있다.
+
+##### origin
+>   - 상류에서 fork한 원류 래퍼지토를 의미한다.
+
+<br>![image6](image-6.png)
 
 
 ### 코드 리뷰
