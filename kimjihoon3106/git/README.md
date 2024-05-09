@@ -120,6 +120,24 @@ git branch
 * 브랜치 목록 확인
 
 ```bash
+git branch -r
+```
+* 원격 브랜치 목록 확인
+```bash
+git branch -a
+```
+* 저장소에 있는 모든 브랜치 목록 확인
+```bash
+git branch -m
+```
+* branch 이름 변경
+
+```bash
+git branch -v
+```
+* 브랜치 목록과 각 브랜치의 최근 커밋 확인
+
+```bash
 git branch -d [삭제할 브랜치 이름]
 ```
 ```bash
