@@ -199,4 +199,17 @@ body는 커밋의 내용을 나타냅니다.
 footer는 선택사항이며 관련 이슈나 패치를 참조하기 위해 사용합니다.
 이슈 트래커 id 또는 이전 커밋과 관련된 내용을 작성할 수 있습니다.
 
-#### Branch Convention -> 브랜치 네이밍 관습
+#### Branch Convention -> 브랜치 관습
+
+브랜치 관습과 브랜치 전략은 내용이 비슷하기 때문에, branch naming에 관련해서만 정리했습니다.
+
+git-flow를 기준으로 master와 develop브랜치는
+일반적으로 이름을 따로 변경하지 않고 사용합니다.
+
+feature 브랜치는 github-flow에서도 사용되며
+어떤 이름도 가능하지만 master, develop, hotfix, release처럼 이미 사용중인 이름과 곂쳐선 안된다.
+`feature/기능요약`형식을 사용한다.
+
+release 브랜치는 일반적으로 `release-버전`형태로 이름 짓는다.
+
+hotfix 브랜치도 마찬가지로 `hotfix-버전`형태로 이름 짓는다.
