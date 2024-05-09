@@ -153,3 +153,12 @@ github flow는 git flow와 달리,
 4. 코드리뷰, 피드백
 5. 병합
 6. 배포
+
+
+## 공통
+
+#### [코드 리뷰](code-review.md)
+
+#### Commit Convention -> 커밋 메세지 관습
+
+#### Branch Convention -> 브랜치 네이밍 관습
