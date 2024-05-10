@@ -7,6 +7,21 @@
 
 `@Override` 어노테이션을 사용해야 한다.
 
+ex)
+```java
+class Student {
+   public void sayHello() {
+      System.out.println("나는 학생");
+   }
+}
+
+class GsmStudent extends Student {Student
+   @Override
+   public void sayHello() {
+      System.out.println("나는 소마고 학생");
+   }
+}
+```
 
 # Overloading
 
@@ -18,3 +33,18 @@
 
 메소드의 이름이 같고, 매개변수의 개수나 타입이 달라야한다.
 리턴타입만 다른것은 오버로딩 할 수 없다.
+
+ex)
+```java
+class Student {
+   public void sayHello() {
+      System.out.println("나는 학생");
+   }
+   public void sayHello(String name) {
+      System.out.println("나는" + name);
+   }
+   public void sayHello(int grade){
+      System.out.println("나는" + grade + "학년");
+   }
+}
+```
