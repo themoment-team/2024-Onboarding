@@ -1,6 +1,8 @@
 ## JAVA
 ### 클래스, 객체, 인스턴스의 개념 및 차이점
+
 ![image](/2024-Onboarding/kimjihoon3106/java/image/image-2.png)
+
 #### 클래스 (class)
 
 * 객체를 만들기 위한 설계도 또는 틀이다.
