@@ -19,7 +19,7 @@ class Student {
    }
 }
 
-class GsmStudent extends Student {Student
+class GsmStudent extends Student {
    @Override
    public void sayHello() {
       System.out.println("나는 소마고 학생");
