@@ -33,7 +33,12 @@ Inerface는 추상 메서드만으로 이루어진 클래스이다.
 
 즉, abstract class와 달리 일반 메서드를 포함할 수 없다.
 
-인터페이스에서의 변수는 무조건 `static final`로 지정해야한다.
+따라서 인터페이스 메서드는 접근 지정자를 붙이지 않아도, 기본적으로 `public abstract`로 컴파일된다.
+
+인터페이스에서의 변수는 `static final`로 지정해야한다.
+
+꼭 `static final`로 지정하지 않더라도 인터페이스의 멤버 변수는
+컴파일 과정에서 자동적으로 `static final`이 된다. (상수화)
 
 ```java
 public interface Car{
