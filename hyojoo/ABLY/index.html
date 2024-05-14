@@ -8,26 +8,51 @@
 </head>
 <body>
     <header>
-        <div>
-            <input placeholder="하나만 사도 무료배송"/>
-        </div>
+        <div class="search">   
+            <input placeholder="🔍하나만 사도 무료배송"/>
+            <img src="./img/shopping_cart.png">
+        </div> 
     </header>
     <main>
-        <div class="mainImg">
-            <div class = "slider">
-                <img src="/img/ably1.png">
-                <img src="/img/ably2.gif">
-                <img src="/img/ably3.gif">
-                <img src="/img/ably4.png">
-                <img src="/img/ably5.gif">
-                <img src="/img/ably6.png">
-                <img src="/img/ably7.png">
-                <img src="/img/ably8.png">
-                <img src="/img/ably9.png">
-                <img src="/img/ably10.jpg">
-                <img src="/img/ably11.jpg">
-                <img src="/img/ably12.jpg">
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="./img/ably1.png" alt="Image 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably2.gif" alt="Image 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably3.gif" alt="Image 3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably4.png" alt="Image 4">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably5.gif" alt="Image 5">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably6.png" alt="Image 6">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably7.png" alt="Image 7">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably8.png" alt="Image 8">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably9.png" alt="Image 9">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably10.jpg" alt="Image 10">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./img/ably11.png" alt="Image 11">
+                </div>
             </div>
+            <button class="prev-btn"><</button>
+            <button class="next-btn">></button>
+            <div class ="page"><span class="current-page">1</span>/<span class="total-pages">1</span></div>
         </div>
         <div class ="list">
             <span>
@@ -67,9 +92,35 @@
                 <p>빅사이즈</p>
             </span>
         </div>
-        <div>
+        <div class="small_title">
             <p>회원님을 위한 추천 상품</p>
-            <span class ="sponsored">sponsored</span>
+            <span>sponsored</span>
+        </div>
+        <div class="product">
+            <span>
+                <img src="https://d3ha2047wt6x28.cloudfront.net/IgIkNai8_dE/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzAzYzEwOTI4MWZhNDE3MzkyNGE4MTg5N2U2N2MwMGZkLmdpZg">
+                <span class="count">37%</span>
+                <span>16,200</span>
+                <span class="brand">모디무드</span>
+                <span class="content">기획 [2사이즈/모델추천🖤] 비투 핀턱 벌룬 그트랩 나일론 ...</span>
+                <span class="bought">1,366개 구매중</span>
+            </span>
+            <span>
+                <img src="https://d3ha2047wt6x28.cloudfront.net/EsGHbou8o3Q/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzMwN2Q5ZjQ4N2I5MGE0NzkxNTNhMTcwNzM3NmE1MzM2LmdpZg">
+                <span class="count">3%</span>
+                <span>25,600</span>
+                <span class="brand">워무드마인</span>
+                <span class="content">🚀2size🚀 루어 원톡 버뮤타 PT / 코튼 면 밴딩 트레이닝 ...</span>
+                <span class="bought">16,543개 구매중</span>
+            </span>
+            <span>
+                <img src="https://d3ha2047wt6x28.cloudfront.net/xTiZck702Eg/pr:NEW_GOODS_THUMB_WEBP/czM6Ly9hYmx5LWltYWdlLWxlZ2FjeS9kYXRhL2dvb2RzLzRjN2MwNTFiMTM0NTZkOTE3MjNjOTU1MThlMDg1ZjRmLmdpZg">
+                <span class="count">30%</span>
+                <span>18,900</span>
+                <span class="brand">슈가파우더</span>
+                <span class="content">당일발송 | [가벼워요/여름가디건] 웨...</span>
+                <span class="bought">10,113개 구매중</span>
+            </span>
         </div>
     </main>
     <footer>
@@ -92,7 +143,6 @@
             </span>
         </div>
     </footer>
+    <script src="./app.js"></script>
 </body>
 </html>
-
-<script src="js\advertisement.js"
