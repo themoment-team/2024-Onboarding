@@ -8,19 +8,19 @@ body{
 .search > input {
     width: 685.5px;
     height: 50px;
-    display: flex;
-    background-color: #d7d7d7;
-    border:1px solid #d7d7d7;
+    background-color: #e6e3e3;
+    border:1px solid #e6e3e3;
     border-radius: 13px;
     font-size: large;
     font-size: 20px;
     font-weight: bold;
+    margin-bottom: 25px;
 }
 
 .search > img {
     width: 50px;
     height: 50px;
-    transform: translateY(25%);
+    transform: translateY(37%);
 }
 
 .mainImg {
@@ -68,32 +68,47 @@ body{
 
 .small_title > p{
     display: inline-block;
-    width: 650px;
+    width: 630px;
     font-size: 25px;
     font-weight: bold;
 }
 .small_title > span {
     color: gray;
     font-size: 20px;
+    margin-right: 20px;
+}
+.product, .big_product{
+    display: flex;
+    margin-bottom: 20px;
+}
+.product > span > img {
+    width: 240px;
+    cursor: pointer;
+    border-radius: 10px;
 }
 
-.product > span > img {
-    width: 245px;
-    height: 300px;
+.big_product > span > img {
+    width: 365px;
     cursor: pointer;
     border-radius: 10px;
 }
 
 .footer > span > img, .list > span > img{
     position: relative;
-    left: 50%;
+    left: 55%;
     transform: translateX(-50%);
+}
+
+.footer > span > div {
+    text-align: center;
+    position: relative;
+    left: 10px;
 }
 
 .carousel {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow: hidden;/
 }
 
 .carousel-container {
@@ -137,7 +152,27 @@ button {
     align-items: center;
     display: flex;
     background-color: #00000059;
+    color: white;
     border-radius: 30px;
     font-weight: bold;
     font-size: large;
+}
+
+.count {
+    color : red;
+    font-size: 24px;
+}
+
+.price {
+    font-size: 24px;
+}
+
+.brand, .content {
+    color: #6a6969;
+}
+.bought {
+    color: #878787;
+}
+.brand {
+    font-weight: bold;
 }
