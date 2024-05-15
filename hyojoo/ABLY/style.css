@@ -1,8 +1,19 @@
 body{
     width: 750px;
+    height: 100vh;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    margin: 0;
+}
+
+main {
+    height: 85vh;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 .search > input {
@@ -56,6 +67,13 @@ body{
     text-align: center;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff; /* 배경색 추가 */
+}
+
 .footer > span {
     display: inline;
 }
@@ -64,7 +82,7 @@ body{
     width: 180px;
     height: auto;
     cursor: pointer;
-}
+} 
 
 .small_title > p{
     display: inline-block;
@@ -108,7 +126,7 @@ body{
 .carousel {
     position: relative;
     width: 100%;
-    overflow: hidden;/
+    overflow: hidden;
 }
 
 .carousel-container {
@@ -143,12 +161,11 @@ button {
 }
 
 .page {
-    width: 60px;
-    height: 40px;
+    width: 80px;
+    height: 37px;
     position: relative;
     left: 650px;
-    bottom: 70px;
-    padding-left: 20px;
+    bottom: 60px;
     align-items: center;
     display: flex;
     background-color: #00000059;
@@ -156,6 +173,7 @@ button {
     border-radius: 30px;
     font-weight: bold;
     font-size: large;
+    justify-content: center;
 }
 
 .count {
