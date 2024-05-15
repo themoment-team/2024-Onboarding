@@ -15,16 +15,19 @@ function showSlide(index) {
     currentPageSpan.textContent = index + 1;
 }
 
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
+function moveSlide(index){
+    if(index < 0) index+=slides.length;
+    currentIndex = (index) % slides.length;
     showSlide(currentIndex);
     resetAutoSlideTimer();
 }
 
+function nextSlide() {
+    moveSlide(currentIndex+1);
+}
+
 function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-    resetAutoSlideTimer();
+    moveSlide(currentIndex-1);
 }
 
 function startAutoSlide() {
