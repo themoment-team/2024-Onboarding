@@ -18,7 +18,7 @@
 
 ___
 
-![alt text](./java-collection.jpeg)
+![alt text](./img/java-collection.jpeg)
 
 위 사진은 자바 컬렉션 프레임워크의 상속 계층도이다.
 
@@ -89,7 +89,7 @@ Object[] toArray(Object[] a) //지정된 배열에 Collection의 객체를 저�
 + 배열과 달리, 자료형의 크기가 동적으로 변할 수 있다. (가변)
 
 > #### ArrayList
-> ![alt](./ArrayList.png)
+> ![alt](./img/ArrayList.png)
 > 배열을 이용하여 만든 리스트
 단방향 포인터 구조로 자료에 대한 순차적인 접근에 강점이 있어 조회가 빠르다.
 순차적인 요소 추가/삭제는 빠르지만 임의의 위치에서 추가/삭제는 느린편이다.
@@ -99,20 +99,20 @@ Object[] toArray(Object[] a) //지정된 배열에 Collection의 객체를 저�
   LinkedList나 Vector, Stack을 사용할 수 있다.
 
 > #### LinkedList
-> ![alt](./LinkedList.png)
+> ![alt](./img/LinkedList.png)
 > 노드(객체)를 연결하여 리스트 처럼 만든 컬렉션이다.
 ArrayList와 반대로 `양방향 포인터 구조`이며
 데이터의 중간 삽입/삭제가 빠르지만 임의의 요소에 대한 접근이 느리다.
 List와 Deque를 동시에 상속한다.
 
 > #### Vector
-> ![alt](./Vector.jpeg)
+> ![alt](./img/Vector.jpeg)
 > ArrayList의 구형 버전 (구성이 거의 비슷)
 ArrayList와 달리 메서드가 동기화 되어있어 Thread-Safe하다.
 > > Thread-Safe는 한번에 여러 Thread에서 접근해도 프로그램 실행에 문제가 없음을 나타낸다.
 
 > #### Stack
-> ![alt](./Stack.png)
+> ![alt](./img/Stack.png)
 > 후입선출의 자료구조이다.
 마지막에 들어온 원소가 처음으로 나간다.
 값을 넣을때 push, 빼낼때 pop을 사용한다.
@@ -124,18 +124,18 @@ Vector를 상속하며 대체제로 ArratDeque를 많이 사용한다.
 처음 들어온 원소가 처음으로 나간다.
 
 > #### PriorityQueue
-> ![alt](./PriorityQueue.png)
+> ![alt](./img/PriorityQueue.png)
 > 우선순위를 가지는 큐이다.
 우선순위가 높은 순으로 정렬하고 꺼낸다.
 우선순위 큐에 저장할 객체는 `compareTo`메서드를 사용해 객체의 우선순위를 결정하므로 `Comparable`인터페이스를 구현해야 한다.
 
 > #### Deque
-> ![alt](./Deque.png)
+> ![alt](./img/Deque.png)
 Deque(Double-Ended Queue)는 양쪽으로 넣고 빼는 것이 가능한 큐를 말한다.
 스택과 큐를 하나로 합쳐놓은 것과 같다.
 
 > > #### ArrayDeque
-> > ![alt](./ArrayDeque.png)
+> > ![alt](./img/ArrayDeque.png)
 > > 스택으로 사용할 때 Stack 클래스보다 빠르며, 대기열로 사용할 때는 LinkedList보다 빠르다.
 
 ### Set
@@ -144,7 +144,7 @@ Deque(Double-Ended Queue)는 양쪽으로 넣고 빼는 것이 가능한 큐를 
 순서가 없으므로 get(index) 메서드도 없다.
 
 > #### HastSet
-> ![alt](./HashSet.png)
+> ![alt](./img/HashSet.png)
 > 배열과 연결 노드를 결합한 자료구조이다.
 추가, 검색, 삭제, 접근성이 모두 뛰어나다.
 대신 순서를 예측 할 수 없다.
@@ -155,8 +155,8 @@ Deque(Double-Ended Queue)는 양쪽으로 넣고 빼는 것이 가능한 큐를 
 중복 제거와 순서 유지를 동시에 하고 싶은 경우 `HastSet`의 대체제로 사용된다.
 
 > #### HashSet
-> ![alt](./TreeSet.png)
-> ![alt](./TreeSet2.png)
+> ![alt](./img/TreeSet.png)
+> ![alt](./img/TreeSet2.png)
 > 이진 검색 트리 형태의 자료구조이다.
 순서를 가지지 않지만, 데이터를 정렬하여 저장한다.
 
@@ -177,18 +177,18 @@ Deque(Double-Ended Queue)는 양쪽으로 넣고 빼는 것이 가능한 큐를 
 따라서 `keySet()`은 Set을 반환하고 `values()`는 Collection을 반환한다.
 
 > #### HashMap
-> ![alt](./HashMap.png)
+> ![alt](./img/HashMap.png)
 > HashTable을 보완한 컬렉션
 배열과 연결이 결합된 형태로, 키(key)와 값(value)을 묶어 하나의 데이터로 저장한다.
 비동기로 작동하기 때문에 멀티 쓰레드 환경에서는 ConcurrentHashMap을 사용하는 것이 권장된다.
 
 > #### LinkedHashMap
-> ![alt](./LinkedHashMap.png)
+> ![alt](./img/LinkedHashMap.png)
 > HashMap을 상속하여, HashMap과 비슷하다.
 하지만 Entry들이 연결되어 데이터의 순서를 보장한다.
 
 > #### TreeMap
-> ![alt](./TreeMap.png)
+> ![alt](./img/TreeMap.png)
 > 이진 검색 트리의 형태로 키와 값의 쌍으로 이루어진 데이터를 저장한다. 
 (TreeSet 과 같은 원리)
 TreeMap은 SortedMap 인터페이스를 구현하고 있어 Key 값을 기준으로 정렬된다.
@@ -196,6 +196,6 @@ TreeMap은 SortedMap 인터페이스를 구현하고 있어 Key 값을 기준으
 정렬되는 순서는 숫자 > 알파벳 대문자 > 알파벳 소문자 > 한글 순이다.
 
 > #### HashTable
-> ![alt](./HashTable.png)
+> ![alt](./img/HashTable.png)
 > Key를 특정 해시 함수를 통해 해싱한 후 나온 결과를 배열의 인덱스로 사용하여 Value를 찾는 방식으로 동작된다.
 HashMap보다 느리지만, 동기화가 지원된다.
