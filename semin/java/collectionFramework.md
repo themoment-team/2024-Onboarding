@@ -109,6 +109,7 @@ List와 Deque를 동시에 상속한다.
 > ![alt](./Vector.jpeg)
 > ArrayList의 구형 버전 (구성이 거의 비슷)
 ArrayList와 달리 메서드가 동기화 되어있어 Thread-Safe하다.
+> > Thread-Safe는 한번에 여러 Thread에서 접근해도 프로그램 실행에 문제가 없음을 나타낸다.
 
 > #### Stack
 > ![alt](./Stack.png)
