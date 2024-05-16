@@ -94,6 +94,10 @@ Object[] toArray(Object[] a) //지정된 배열에 Collection의 객체를 저�
 단방향 포인터 구조로 자료에 대한 순차적인 접근에 강점이 있어 조회가 빠르다.
 순차적인 요소 추가/삭제는 빠르지만 임의의 위치에서 추가/삭제는 느린편이다.
 
++ **List는 Interface이고 ArrayList는 그것을 구현한 Class이다.
+  가장 기본적인 배열로는 ArrayList를 사용하면 되고, 필요에따라
+  LinkedList나 Vector, Stack을 사용할 수 있다.
+
 > #### LinkedList
 > ![alt](./LinkedList.png)
 > 노드(객체)를 연결하여 리스트 처럼 만든 컬렉션이다.
