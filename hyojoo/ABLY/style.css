@@ -1,7 +1,42 @@
+body{
+    width: 750px;
+    height: 100vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+main {
+    height: 85vh;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.search > input {
+    width: 685.5px;
+    height: 50px;
+    background-color: #e6e3e3;
+    border:1px solid #e6e3e3;
+    border-radius: 13px;
+    font-size: large;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.search > img {
+    width: 50px;
+    height: 50px;
+    transform: translateY(37%);
+}
+
 .mainImg {
     width: 750px;
     height: 374px;
-    overflow: hidden;
     cursor: pointer;
 }
 
@@ -12,6 +47,7 @@
 
 .list {
     width: 750px;
+    margin-top: 20px;
 }
 
 .list > span {
@@ -23,14 +59,19 @@
 
 .list > span > img {
     display: block;
+    width: 70px;
 }
 
-p {
-    display: inline;
+.list > span > p {
+    display: block;
+    text-align: center;
 }
 
-.sponsored {
-    color: gray;
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff; /* 배경색 추가 */
 }
 
 .footer > span {
@@ -38,14 +79,118 @@ p {
 }
 .footer > span {
     display: inline-block;
-    width: 187.5px;
+    width: 180px;
     height: auto;
     cursor: pointer;
+} 
+
+.small_title > p{
+    display: inline-block;
+    width: 630px;
+    font-size: 25px;
+    font-weight: bold;
+}
+.small_title > span {
+    color: gray;
+    font-size: 20px;
+    margin-right: 20px;
+}
+.product, .big_product{
+    display: flex;
+    margin-bottom: 20px;
+}
+.product > span > img {
+    width: 240px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.big_product > span > img {
+    width: 365px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.footer > span > img, .list > span > img{
+    position: relative;
+    left: 55%;
+    transform: translateX(-50%);
 }
 
 .footer > span > div {
     text-align: center;
+    position: relative;
+    left: 10px;
 }
-.footer > span > img {
-    
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.prev-btn, .next-btn {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #00000059;
+    font-size: 50px;
+    color: white;
+}
+.prev-btn {
+    left: 0;
+}
+.next-btn {
+    right: 0;
+}
+
+.page {
+    width: 80px;
+    height: 37px;
+    position: relative;
+    left: 650px;
+    bottom: 60px;
+    align-items: center;
+    display: flex;
+    background-color: #00000059;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: large;
+    justify-content: center;
+}
+
+.count {
+    color : red;
+    font-size: 24px;
+}
+
+.price {
+    font-size: 24px;
+}
+
+.brand, .content {
+    color: #6a6969;
+}
+.bought {
+    color: #878787;
+}
+.brand {
+    font-weight: bold;
 }
