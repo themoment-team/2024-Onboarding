@@ -77,13 +77,17 @@
 # fetch
 - fetch 매서드는 JavaScript에서 서버로 네트워크 요청을 보내고 응답을 받을 수 있도록 해주는 매서드입니다.
 ## 기본 구조
-- fetch(url)
-.then(res => {
-  console.log(res)
-})
-.catch(error => {
-  console.log(error)
-})
+- 첫번째 파라미터: 요청을 보낼 URL
+  두번째 파라미터: 요청의 추가적인 설정(옵션)
+fetch(url, options)
+  .then(response => {
+    응답을 받아서 추가적인 작업을 수행합니다.
+    console.log(response);
+  })
+  .catch(error => {
+    오류 처리
+    console.log(error);
+  });
 - 기본적인 구조와 동작은 Promise 객체와 동일합니다.
 - 파라미터로 요청을 보낼 url을 입력해 주고 응답을 받아서 추가적인 작업 또한 해줄 수 있습니다.
 - then에서 응답 객체 res를 받고, catch에서 에러 요청이 발생했을 때, 에러를 받습니다.
