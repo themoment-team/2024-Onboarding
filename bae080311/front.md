@@ -88,6 +88,20 @@ fetch(url, options)
     오류 처리
     console.log(error);
   });
+- 데이터를 받은 다음 JSON 형식으로 파싱하여 처리
+  - fetch(url)
+    .then(response => {
+      // 응답을 JSON 형식으로 파싱
+      return response.json();
+    })
+    .then(data => {
+      // JSON 형식으로 파싱된 데이터를 사용하여 추가적인 작업 수행
+      console.log(data);
+    })
+    .catch(error => {
+      // 오류 처리
+      console.log(error);
+    });
 - 기본적인 구조와 동작은 Promise 객체와 동일합니다.
 - 파라미터로 요청을 보낼 url을 입력해 주고 응답을 받아서 추가적인 작업 또한 해줄 수 있습니다.
 - then에서 응답 객체 res를 받고, catch에서 에러 요청이 발생했을 때, 에러를 받습니다.
