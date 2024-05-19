@@ -1,11 +1,63 @@
-## const와 let
+## const
 - JS에서 변수를 선언하는 데 사용되는 키워드
 - **`const`**
     - 한 번 할당된 값을 **변경할 수 없는 상수**를 선언
-- **`let`**
-    - <span style="color:green">블록 범위</span> 지역 **변수** 선언
-    - 값이 필요에 따라 변경 가능
-        - <span style="color:green">블록 범위</span>  : **`{}`** 로 둘러싸인 범위
+
+---
+
+## let
+- <span style="color:green">블록 범위</span> 지역 **변수** 선언
+    - <span style="color:green">블록 범위</span>  : **`{}`** 로 둘러싸인 범위
+- 값이 필요에 따라 변경 가능
+- 선언과 초기화
+    - <span style="color:red">블록 스코프</span>를 가지는 변수를 선언할 때 사용
+        = 변수가 선언된 블록 내에서만 유효함
+        - `js`
+            ```javascript
+                if (true) {
+                    let blockScopedVariable = 'I am inside a block';
+                    console.log(blockScopedVariable); // 'I am inside a block'
+                }
+
+                console.log(blockScopedVariable); // ReferenceError: blockScopedVariable is not defined
+            ```
+    - 선언과 동시에 초기값을 할당 가능
+- **let 값 변경 과정 예시** 
+    1. **변수 선언 및 초기화**
+        `js`
+        ```javascript
+        let score = 10;
+        console.log(score); // 10
+        ```
+    2. **값 변경**
+        `js`
+        ```javascript
+        score = 20;
+        console.log(score); // 20
+        ```
+    3. **블록 스코프에서 값 변경**
+        `js`
+        ```javascript
+        if (true) {
+            let blockVar = 'Block Scope';
+            console.log(score); // 20
+            console.log(blockVar);  // 'Block Scope'
+        }
+        console.log(score); // 20
+        console.log(blockVar);  // ReferenceError: blockVar is not defined
+        ```
+---
+## JavaScript의 호이스팅(Hoisting)
+- **의미**
+    - 변수와 함수 선언이 실제 코드 **실행 전**에 해당 스코프의 **최상위로 끌어올려지는 것**
+    - 변수와 함수를 선언하기 전에 참조할 수 있는 것처럼 보임
+- **변수 호이스팅**
+    - `var`로 선언된 변수는 호이스팅 됨
+    - 초기화는 원래 위치에서 이루어져 초기화 전에는 `undefined` 값을 가짐
+    - `let`과 `const`로 선언된 변수도 호이스팅되지만, 초기화 전 접근 시 `ReferenceError`가 발생
+- **함수 호이스팅**
+    - 함수 선언은 함수 전체가 호이스팅되어 선언 이전에 호출 가능
+    - 함수 표현식은 변수 호이스팅과 유사하게 동작하여 초기화 전에는 사용 불가능
 
 ---
 
@@ -35,6 +87,148 @@
 - 호출될 때 매개변수를 전달받아 실행
     - 전달된 매개변수 : 함수 내에서 사용 가능
 
+---
+
+## Regular Function vs Arrow Function
+
+#### Regular Function
+- `function` 키워드를 사용하여 정의
+- ex) `js`
+    ```javascriptw
+    function regularFunction(param) {
+        return param * 2;
+    }
+    ```
+
+#### Arrow Function
+- `=>` 문법을 사용하여 정의
+- ex) `js`
+
+    ```javascript
+    const arrowFunction = (param) => {
+        return param * 2;
+    };
+
+    // 중괄호와 return 생략 가능 (한 줄일 경우)
+    const arrowFunction = param => param * 2;
+    ```
+
+### 차이점
+
+#### 1. `this` 바인딩
+
+- **Regular Function**
+    - 함수가 호출될 때 `this` 값은 함수가 어떻게 호출되었는지에 따라 동적으로 바인딩 됨
+    - ex) `js`
+        ```javascript
+        const obj = {
+            value: 10,
+            method: function() {
+            console.log(this.value); // 10
+            }
+        };
+        obj.method();
+        ```
+    
+- **Arrow Function**
+    - 자신만의 `this` 바인딩 X
+    - 정의된 위치에서 상위 스코프의 `this` 유지
+    - ex) `js`
+        ```javascript
+        const obj = {
+            value: 10,
+            method: () => {
+                console.log(this.value); // undefined, 상위 스코프의 this 사용
+            }
+        };
+        obj.method();
+        ```
+
+#### 2. `arguments` 객체
+
+- **Regular Function**
+    - 함수 내부에서 암묵적으로 제공되는 `arguments` 객체 사용 가능
+    - ex) `js`
+        ```javascript
+        function regularFunction() {
+            console.log(arguments);
+        }
+        regularFunction(1, 2, 3); // [1, 2, 3]
+        ```
+    
+- **Arrow Function**
+    - `arguments` 객체를 지원 X
+    - Rest 파라미터를 사용 가능 
+    - ex) `js`
+        ```javascript
+        const arrowFunction = (...args) => {
+            console.log(args);
+        };
+        arrwFunction(1, 2, 3); // [1, 2, 3]
+        ```
+    
+
+#### 3. `new` 키워드 사용
+
+- **Regular Function**
+    - 생성자 함수로 사용 가능
+    - ex) `js`
+        ```javascript
+        function Person(name) {
+            this.name = name;
+        }
+        const person = new Person('Alice');
+        console.log(person.name); // Alice
+        ```
+
+- **Arrow Function**:
+    - 생성자 함수로 사용 불가능
+    - ex) `js`
+        ```javascript
+        const Person = (name) => {
+            this.name = name;
+        };
+        const person = new Person('Alice'); // TypeError: Person is not a constructor
+        ```
+
+#### 4. 메서드로서의 사용
+- **Regular Function**
+    - 객체 메서드로 정의에 적합
+    - ex) `js`
+        ```javascript
+        const obj = {
+            value: 42,
+            method: function() {
+                return this.value;
+            }
+        };
+        console.log(obj.method()); // 42
+        ```
+    
+- **Arrow Function**
+    - 메서드로 사용하기에 적합 X
+    - ex) `js`
+        ```javascript
+        const obj = {
+            value: 42,
+            method: () => {
+                return this.value;
+            }
+        };
+        console.log(obj.method()); // undefined
+        ```
+    
+
+### 결론
+- **Regular Function**
+    - 유연
+    - 다양한 컨텍스트에서 사용하기 적합
+        ⇒ 생성자 함수, 메서드
+- **Arrow Function**
+    - 간결
+        ⇒ 콜백 함수, 함수 표현식
+    - 상위 스코프의 `this` 유지
+        ⇒ `this` 바인딩이 필요 없는 경우에 적합
 ---
 
 ## **js에서 html 태그 가져오기**
