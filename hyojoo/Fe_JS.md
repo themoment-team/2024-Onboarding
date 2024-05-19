@@ -370,7 +370,7 @@
         }
         });
         ```
-    
+
 - **CORS와 관련된 주의사항**
     >- **CORS(Cross-Origin Resource Sharing)**
     >     - **의미**
