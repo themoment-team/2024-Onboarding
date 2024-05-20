@@ -33,6 +33,38 @@ class Example {
 }
 ```
 
+### Lombok
+Lombok은 어노테이션을 기반으로 코드를 자동완성 해주는 라이브러리이다.
+Lombok을 이용하면 Getter, Setter, Equlas, ToString 등과 다양한 방면의 코드를 자동완성 시킬 수 있다.
+
+```java
+//Before Lombok
+public class Car {
+  private int speed;
+  private String name;
+
+  public int getSpeed() {
+    return this.speed;
+  }
+  public int setSpeed(int speed) {
+    this.speed = speed;
+  }
+  public int getName() {
+    return this.name;
+  }
+}
+
+//After Lombok
+@Getter
+public class Car {
+  @Setter
+  private int speed;
+
+  private String name;
+}
+```
+
+이처럼 Lombok을 사용하면, Getter, Setter를 포함한 여러가지 보일러 플레이트 코드를 줄일 수 있다.
 ___
 
 #### 번외
