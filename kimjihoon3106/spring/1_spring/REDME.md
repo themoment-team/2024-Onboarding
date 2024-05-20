@@ -184,25 +184,28 @@ public class CreateBoardRequest {
 }
 ```
 
+
+
 #### + 자바 빈즈(Java Bean)
-* 특정한 정보 (id, password, name, job...)등을 가지고 있는 클래스를 표현하는 하나의 규칙이고, 데이터를 표현하기 위한 목적을 지니고 있다.
-* 이 규칙을 지닌 클래스를 Java Bean 이라고 함.
+* 특정한 정보 (id, password, name, job...)등을 가지고 있는 클래스를 표현하는 하나의 규칙이고, 데이터를 표현하기 위한 목적을 지니고 있다.<br>
+* 이 규칙을 지닌 클래스를 Java Bean 이라고 함.<br>
 
 #### 규칙
-* 반드시 클래스는 패키지화 되어야 한다.
-* 멤버변수는 property(프로퍼티)라고 한다.
-* 멤버변수는 private로 지정하고, 외부접근을 위한 get, set 메소드를 정의해야 한다.
-* get, set 메소드는 public으로 지정해야 한다.
+* 반드시 클래스는 패키지화 되어야 한다.<br>
+* 멤버변수는 property(프로퍼티)라고 한다.<br>
+* 멤버변수는 private로 지정하고, 외부접근을 위한 get, set 메소드를 정의해야 한다.<br>
+* get, set 메소드는 public으로 지정해야 한다.<br>
 
 #### 특징
-* JavaBean property
->   * property는 JavaBean에 저장되어 있는 값을 나타내며, 메서드 이름을 사용해서 property 이름을 결정하게 된다. getter/setter 와 상응.
-* Jsp:useBean 태그를 이용한 자바 객체 사용
->   * JSP페이지의 주요 기능 중 하나는 데이터를 보여주는 기능이다.
->   * JSP 에서는 이런 데이터를 JavaBean 클래스에 담아 값을 보여주는 것이 일반적이다.
-* Java Bean은 쉽게 말해 MVC 패턴에서 데이터를 표현해주는 Model에서 사용하기 위한 표현의 형태.
-* 상황에 따라 변수를 그때마다 생성해서 사용하면 효율이 떨어진다.
-* 따라서 공통된 정보를 관리하는 기능에서 편리하게 사용하기 위해 규칙성 있는 형태로 데이터의 집합을 만든 것이다.
+* JavaBean property<br>
+>   * property는 JavaBean에 저장되어 있는 값을 나타내며, 메서드 이름을 사용해서 property 이름을 결정하게 된다. getter/setter 와 상응.<br>
+* Jsp:useBean 태그를 이용한 자바 객체 사용<br>
+>   * JSP페이지의 주요 기능 중 하나는 데이터를 보여주는 기능이다.<br>
+>   * JSP 에서는 이런 데이터를 JavaBean 클래스에 담아 값을 보여주는 것이 일반적이다.<br>
+* Java Bean은 쉽게 말해 MVC 패턴에서 데이터를 표현해주는 Model에서 사용하기 위한 표현의 형태.<br>
+* 상황에 따라 변수를 그때마다 생성해서 사용하면 효율이 떨어진다.<br>
+* 따라서 공통된 정보를 관리하는 기능에서 편리하게 사용하기 위해 규칙성 있는 형태로 데이터의 집합을 만든 것이다.<br>
+
 ---
 
 #### VO(Value Object)
