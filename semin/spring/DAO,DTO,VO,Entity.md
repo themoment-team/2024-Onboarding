@@ -9,6 +9,9 @@ DB와 연결할 Connection까지 설정되어있는 경우가 많다.
 
 ORM 프레임워크를 사용하는 경우 커넥션 풀이 제공되기도 하여, 직접 DAO를 별도로 만들지 않는 경우도 많다.
 
+> Connection Pool 이란?
+JDBC API를 이용해 데이터베이스와 연결되는 Connection 객체를 생성하기 위해 많은 오버헤드가 발생한다. 이를 해소하기 위해 미리 Connection을 만들어 관리하고, 애플리케이션의 요청에 따라 Connection 객체를 제공하는것을 Connection Pool이라고 한다.
+
 # DTO
 Data Transfer Object의 줄임말이다.
 
