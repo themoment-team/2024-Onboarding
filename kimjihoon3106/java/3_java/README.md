@@ -236,7 +236,7 @@ public class Person {
 
 #### @Setter, @Getter
 * Lombok 라이브러리에서 제공되는 기능으로,
-* 일반적으로 Getter와 Setter 메서드를 자동으로 생성해 준다.
+* 일반적으로 Getter와 Setter 메서드를 자동으로 생성해 준다.(클래스 위에 붙일시 모든 필드에 자동으로 생성)
 
 #### 장점
 * 코드가 간결해진다.
@@ -244,6 +244,7 @@ public class Person {
 * 변경에 용이하다.
 * 가독성이 향상된다.
 
++ 어노테이션을 클래스 위에 붙히면 모든 필드에 대해 적용된다!
 ```java
 // Getter와Setter 메서드를 사용한 경우
 public class MyClass {
@@ -267,7 +268,7 @@ public class MyClass {
     private String name;
 }
 ```
-
+---
 #### @Builder
 
 * Lombok 라이브러리에서 제공되는 기능으로,
