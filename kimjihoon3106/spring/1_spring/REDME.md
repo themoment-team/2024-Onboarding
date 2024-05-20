@@ -206,6 +206,181 @@ public class CreateBoardRequest {
 * 상황에 따라 변수를 그때마다 생성해서 사용하면 효율이 떨어진다.<br>
 * 따라서 공통된 정보를 관리하는 기능에서 편리하게 사용하기 위해 규칙성 있는 형태로 데이터의 집합을 만든 것이다.<br>
 
++)
+#### 비동기 처리를 할때 Dto가 사용되는 부분
+
+#### 데이터 일관성 유지
+* 비동기 처리는 여러 스레드나 프로세스에서 동시에 실행되기 때문에 데이터의 일관성을 유지하는 것이 중요하다.
+* DTO를 사용하면 비동기 작업 간에 전달되는 데이터의 구조와 내용을 명확히 정의할 수 있어, 데이터 일관성을 유지하는 데 도움이 된다.
+
+#### 데이터 직렬화/역직렬화
+* 비동기 처리는 주로 메시지 큐나 네트워크를 통해 데이터를 전송하므로, 데이터의 직렬화와 역직렬화가 필요하다. 
+* DTO는 이러한 작업을 쉽게 할 수 있도록 도와줍니다.
+
+#### 보안 강화
+* 엔터티에는 민감한 정보가 포함될 수 있습니다. 
+* 비동기 작업 중에 이러한 엔터티를 직접 사용하면 보안 문제가 발생할 수 있습니다. 
+* DTO는 필요한 데이터만 포함시켜 보안성을 높입니다.
+
+#### 성능 최적화
+* 엔터티는 종종 데이터베이스와의 관계를 포함하고 있어 많은 데이터를 담고 있을 수 있다. 
+* DTO를 사용하면 필요한 데이터만 선택적으로 전송할 수 있어, 비동기 작업의 성능을 최적화할 수 있다.
+
+#### 유지보수성 향상
+* DTO는 엔터티와 비즈니스 로직을 분리하여 코드를 더 쉽게 유지보수할 수 있게 한다. 
+* 엔터티가 변경되더라도 DTO를 통해 외부에 노출되는 데이터는 변경되지 않을 수 있다.
+
+#### 명확한 계약 정의
+* 비동기 처리에서 여러 서비스나 모듈 간 데이터 교환이 발생한다. 
+* DTO를 사용하면 각 서비스 간의 데이터 교환 계약을 명확하게 정의할 수 있어, 시스템의 신뢰성을 높인다.
+
+#### 테스트 용이성
+* DTO를 사용하면 비동기 처리의 입력과 출력을 쉽게 모킹(mocking)할 수 있어, 테스트 작성이 용이해진다.
+
+#### 비동기 처리에 과정
+
+#### 1. DTO 클래스 정의
+* 클라이언트 요청과 서버 응답을 처리하기 위한 DTO 클래스를 정의한다.
+
+Ex)
+```java
+// 클라이언트 요청을 위한 DTO
+public class UserRequestDto {
+    private String username;
+    private String email;
+
+    // Getters and Setters
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
+
+// 서버 응답을 위한 DTO
+public class UserResponseDto {
+    private Long id;
+    private String username;
+    private String email;
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
+```
+
+#### 2. 서비스 클래스에서 비동기 메서드 구현
+* UserService 클래스에서 비동기적으로 사용자 생성 작업을 처리하는 메서드를 구현한다.
+
+Ex)
+```java
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
+import java.util.concurrent.CompletableFuture;
+
+@Service
+public class UserService {
+
+    @Async
+    public CompletableFuture<UserResponseDto> createUser(UserRequestDto userRequestDto) {
+        // 사용자 생성 로직 (예: 데이터베이스 저장)
+        // 여기서는 단순히 임의의 ID를 할당하고 반환하는 예제이다.
+        UserResponseDto userResponseDto = new UserResponseDto();
+        userResponseDto.setId(1L);  // 임의의 ID 할당
+        userResponseDto.setUsername(userRequestDto.getUsername());
+        userResponseDto.setEmail(userRequestDto.getEmail());
+
+        // 비동기 작업 완료
+        return CompletableFuture.completedFuture(userResponseDto);
+    }
+}
+```
+
+#### 3. 컨트롤러에서 비동기 메서드 호출
+* UserController 클래스에서 클라이언트의 요청을 받아서 서비스의 비동기 메서드를 호출한다.
+
+Ex)
+```java
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.concurrent.CompletableFuture;
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping
+    public CompletableFuture<ResponseEntity<UserResponseDto>> createUser(@RequestBody UserRequestDto userRequestDto) {
+        return userService.createUser(userRequestDto)
+                .thenApply(userResponseDto -> ResponseEntity.ok(userResponseDto));
+    }
+}
+
+```
+
+#### 4. Spring Boot 애플리케이션 설정
+* 비동기 처리를 활성화하기 위해 Spring Boot 애플리케이션 클래스에 @EnableAsync 어노테이션을 추가한다.
+
+```java
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
+
+@SpringBootApplication
+@EnableAsync
+public class AsyncDemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(AsyncDemoApplication.class, args);
+    }
+}
+```
+
++)
+#### Async 비동기 처리
+* 요청(함수 호출) 에 대한 응답 (반환값) 이 오는 것을 기다리지 않고 다음 로직 바로 수행
+* ex) 샐러드 가게에서 한 명이 주문받고 n명이 샐러드를 만든다. 
+* client는 이전 주문이 완료되기 전에 본인이 주문한 샐러드를 받을 수 있다.
+
+#### Sync 동기 처리
+* 요청(함수 호출) 에 대한 응답 (반환값) 이 오기 전까지 기다림 => 다음 로직 수행 X
+* ex) 1인 운영 샐러드 가게에서 혼자 주문받고 샐러드를 만든다. 2개 이상의 주문이 들어올 경우, clinet는 이전 주문이 모두 완료되기 전까지 기다려야한다.
+
+#### 📌즉, 비동기 처리를 할때 비동기 함수들을 사용하여 수행하고, 그 결과를 응답하는데 DTO가 사용된다.
 ---
 
 #### VO(Value Object)
