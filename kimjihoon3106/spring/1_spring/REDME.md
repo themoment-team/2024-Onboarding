@@ -192,7 +192,9 @@ public class CreateBoardRequest {
 * 반드시 클래스는 패키지화 되어야 한다.
 * 멤버변수는 property(프로퍼티)라고 한다.
 * 멤버변수는 private로 지정하고, 외부접근을 위한 get, set 메소드를 정의해야 한다.
-* get, set 메소드는 public으로 지정
+* get, set 메소드는 public으로 지정해야 한다.
+
+#### 특징
 * JavaBean property
 >   * property는 JavaBean에 저장되어 있는 값을 나타내며, 메서드 이름을 사용해서 property 이름을 결정하게 된다. getter/setter 와 상응.
 * Jsp:useBean 태그를 이용한 자바 객체 사용
